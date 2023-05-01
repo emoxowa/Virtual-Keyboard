@@ -1,16 +1,12 @@
 import keyText from '../utils/keyText';
 
 class Key {
-  constructor(keyCode, isFnKey = false) {
+  constructor(keyCode) {
     this.keyCode = keyCode;
-    this.isFnKey = isFnKey;
     this.isPressed = false;
     this.element = document.createElement('div');
     this.element.classList.add('key');
     this.element.textContent = keyText[keyCode] || String.fromCharCode(keyCode);
-    if (isFnKey) {
-      this.element.classList.add('fn-key');
-    }
   }
 
   press() {

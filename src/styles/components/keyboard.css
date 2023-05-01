@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #e6e6e6;
+  background-color: white;
   border-radius: 5px;
   padding: 10px;
+  align-items: center;
 }
 
 .keyboard__row {
@@ -21,6 +22,14 @@
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: background-position 0.2s ease;
+  background-image: linear-gradient(to bottom, #f7f7f7 0%, #e8e8e8 100%);
+  background-position: 0% 100%;
+  background-size: 100% 200%;
+}
+
+.keyboard__key:hover {
+  background-position: 0% 0%;
   cursor: pointer;
 }
 
@@ -29,10 +38,23 @@
   box-shadow: none;
 }
 
-.keyboard__key--wide {
-  width: 80px;
+.keyboard__key--space {
+  width: 360px;
+}
+
+.keyboard__key--backspace {
+  width: 110px;
+}
+
+.keyboard__key--enter {
+  width: 90px;
+}
+
+.keyboard__key--tab {
+  width: 60px;
 }
 
 .keyboard__key--tall {
   height: 80px;
 }
+

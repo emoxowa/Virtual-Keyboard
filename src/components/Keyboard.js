@@ -96,6 +96,19 @@ class Keyboard {
         this.keys.push(keyObject);
         keyElement.appendChild(keyObject.element);
         rowElement.appendChild(keyElement);
+        if (key === 'Space') {
+          keyElement.classList.add('keyboard__key--space');
+          keyElement.textContent = '';
+        }
+        if (['CapsLock', 'Backspace', 'Shift'].includes(key)) {
+          keyElement.classList.add('keyboard__key--backspace');
+        }
+        if (['Tab'].includes(key)) {
+          keyElement.classList.add('keyboard__key--tab');
+        }
+        if (['Enter', 'ShiftRight'].includes(key)) {
+          keyElement.classList.add('keyboard__key--enter');
+        }
       });
       this.element.appendChild(rowElement);
     });
