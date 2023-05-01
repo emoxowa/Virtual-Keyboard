@@ -1,0 +1,38 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.keyboard__row {
+  display: flex;
+  gap: 10px;
+}
+
+.keyboard__key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.keyboard__key--pressed {
+  background-color: #cccccc;
+  box-shadow: none;
+}
+
+.keyboard__key--wide {
+  width: 80px;
+}
+
+.keyboard__key--tall {
+  height: 80px;
+}
