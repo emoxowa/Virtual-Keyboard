@@ -10,6 +10,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'linebreak-style': ['off'],
     'import/no-unresolved': [
       2,
       {
