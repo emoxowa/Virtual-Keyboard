@@ -18,7 +18,10 @@ class App {
 
   init() {
     this.inputField.render(this.appElement);
-    this.keyboard.render(this.appElement);
+    this.keyboard.render(this.appElement, (char) => {
+      this.state.input += char;
+      this.inputField.setValue(this.state.input);
+    });
   }
 
   render(parentElement) {

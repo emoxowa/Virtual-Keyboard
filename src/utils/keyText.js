@@ -57,7 +57,7 @@ const keyText = {
   Ctrl: 'Ctrl',
   Win: 'Win',
   Alt: 'Alt',
-  Space: '',
+  Space: ' ',
   AltRight: 'Alt',
   ArrowLeft: '◄',
   ArrowDown: '▼',

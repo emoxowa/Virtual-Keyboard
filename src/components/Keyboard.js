@@ -1,4 +1,5 @@
 import Key from './Key';
+import keysLayout from '../utils/keysLayout';
 
 class Keyboard {
   constructor() {
@@ -9,83 +10,6 @@ class Keyboard {
   }
 
   initKeys() {
-    const keysLayout = [
-      [
-        'Tilda',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '0',
-        '-',
-        '+',
-        'Backspace',
-      ],
-      [
-        'Tab',
-        'q',
-        'w',
-        'e',
-        'r',
-        't',
-        'y',
-        'u',
-        'i',
-        'o',
-        'p',
-        '[',
-        ']',
-        'BackSlash',
-        'Del',
-      ],
-      [
-        'CapsLock',
-        'a',
-        's',
-        'd',
-        'f',
-        'g',
-        'h',
-        'j',
-        'k',
-        'l',
-        'Semicolon',
-        'Quote',
-        'Enter',
-      ],
-      [
-        'Shift',
-        'z',
-        'x',
-        'c',
-        'v',
-        'b',
-        'n',
-        'm',
-        ',',
-        '.',
-        '/',
-        'ArrowUp',
-        'ShiftRight',
-      ],
-      [
-        'Ctrl',
-        'Win',
-        'Alt',
-        'Space',
-        'AltRight',
-        'ArrowLeft',
-        'ArrowDown',
-        'ArrowRight',
-        'CtrlRight',
-      ],
-    ];
-
     keysLayout.forEach((row) => {
       const rowElement = document.createElement('div');
       rowElement.classList.add('keyboard__row');
@@ -97,6 +21,7 @@ class Keyboard {
 
         keyElement.addEventListener('mousedown', () => {
           keyElement.classList.add('keyboard__key--pressed');
+          this.updateInputCallback(keyObject.element.textContent);
         });
         keyElement.addEventListener('mouseup', () => {
           keyElement.classList.remove('keyboard__key--pressed');
@@ -123,7 +48,8 @@ class Keyboard {
     });
   }
 
-  render(parentElement) {
+  render(parentElement, updateInputCallback) {
+    this.updateInputCallback = updateInputCallback;
     parentElement.appendChild(this.element);
   }
 }
