@@ -94,8 +94,17 @@ class Keyboard {
         keyElement.classList.add('keyboard__key');
         const keyObject = new Key(key);
         this.keys.push(keyObject);
+
+        keyElement.addEventListener('mousedown', () => {
+          keyElement.classList.add('keyboard__key--pressed');
+        });
+        keyElement.addEventListener('mouseup', () => {
+          keyElement.classList.remove('keyboard__key--pressed');
+        });
+
         keyElement.appendChild(keyObject.element);
         rowElement.appendChild(keyElement);
+
         if (key === 'Space') {
           keyElement.classList.add('keyboard__key--space');
           keyElement.textContent = '';

@@ -14,6 +14,7 @@
 }
 
 .keyboard__key {
+  user-select: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,8 +35,10 @@
 }
 
 .keyboard__key--pressed {
-  background-color: #cccccc;
+  background-image: linear-gradient(120deg, rgb(106, 106, 223), #794675);
   box-shadow: none;
+  color: white;
+  transform: scale(1.02);
 }
 
 .keyboard__key--space {
@@ -52,9 +55,5 @@
 
 .keyboard__key--tab {
   width: 60px;
-}
-
-.keyboard__key--tall {
-  height: 80px;
 }
 
