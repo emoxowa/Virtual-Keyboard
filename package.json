@@ -4,7 +4,7 @@
   "description": "A virtual keyboard with support for Russian and English languages",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint 'src/**/*.js'",
+    "lint": "eslint ./*.js ./src/**/*.js",
     "start": "webpack serve --open",
     "build": "webpack --mode production",
     "dev": "webpack serve"
