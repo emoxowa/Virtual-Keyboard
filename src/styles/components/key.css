@@ -1,0 +1,52 @@
+.key {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: background-position 0.2s ease;
+  background-image: linear-gradient(to bottom, #f7f7f7 0%, #e8e8e8 100%);
+  background-position: 0% 100%;
+  background-size: 100% 200%;
+}
+
+.key__text {
+  color: rgb(36, 34, 34);
+}
+
+.key__text--white {
+  color: whitesmoke;
+}
+
+.key:hover {
+  background-position: 0% 0%;
+  cursor: pointer;
+}
+
+.key--pressed {
+  background-image: linear-gradient(120deg, rgb(106, 106, 223), #794675);
+  box-shadow: none;
+  color: white;
+  transform: scale(1.03);
+}
+
+.key--wide--360 {
+  width: 360px;
+}
+
+.key--wide--110 {
+  width: 110px;
+}
+
+.key--wide--90 {
+  width: 90px;
+}
+
+.key--wide--60 {
+  width: 60px;
+}
+
