@@ -15,6 +15,18 @@ class Keyboard {
     return fnKeys.includes(keyText);
   }
 
+  toggleCapsLock() {
+    this.isCapsLockPressed = !this.isCapsLockPressed;
+    this.keys.forEach((key) => {
+      if (!Keyboard.isFunctionalKey(key.element.textContent)) {
+        // eslint-disable-next-line no-param-reassign
+        key.element.textContent = this.isCapsLockPressed
+          ? key.element.textContent.toUpperCase()
+          : key.element.textContent.toLowerCase();
+      }
+    });
+  }
+
   initKeys() {
     keysLayout.forEach((row) => {
       const rowElement = document.createElement('div');
@@ -29,6 +41,9 @@ class Keyboard {
             this.updateInputCallback(null, true, false);
           } else if (keyTextContent === 'Del') {
             this.updateInputCallback(null, false, true);
+          } else if (keyTextContent === 'Caps Lock') {
+            keyElement.classList.toggle('keyboard__key--pressed');
+            this.toggleCapsLock();
           } else if (!Keyboard.isFunctionalKey(keyTextContent)) {
             this.updateInputCallback(keyTextContent, false, false);
           }

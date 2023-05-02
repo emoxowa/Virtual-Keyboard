@@ -18,3 +18,9 @@
   cursor: pointer;
 }
 
+.keyboard__key--pressed {
+  background-image: linear-gradient(120deg, rgb(106, 106, 223), #794675);
+  box-shadow: none;
+  color: white;
+  transform: scale(1.03);
+}
