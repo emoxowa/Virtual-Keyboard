@@ -18,19 +18,16 @@ class App {
 
   init() {
     this.inputField.render(this.appElement);
-    this.keyboard.render(this.appElement, (char) => {
-      if (char === 'Backspace') {
-        this.clearInput();
+    this.keyboard.render(this.appElement, (char, isBackspace, isDelete) => {
+      if (isBackspace) {
+        this.state.input = this.state.input.slice(0, -1);
+      } else if (isDelete) {
+        this.state.input = '';
       } else {
         this.state.input += char;
-        this.inputField.setValue(this.state.input);
       }
+      this.inputField.setValue(this.state.input);
     });
-  }
-
-  clearInput() {
-    this.state.input = this.state.input.slice(0, -1);
-    this.inputField.setValue(this.state.input);
   }
 
   render(parentElement) {
