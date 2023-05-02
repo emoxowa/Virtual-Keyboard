@@ -1,0 +1,26 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  align-items: center;
+}
+
+.keyboard__row {
+  display: flex;
+  gap: 10px;
+}
+
+.keyboard__key:hover {
+  background-position: 0% 0%;
+  cursor: pointer;
+}
+
+.keyboard__key--pressed {
+  background-image: linear-gradient(120deg, rgb(106, 106, 223), #794675);
+  box-shadow: none;
+  color: white;
+  transform: scale(1.03);
+}

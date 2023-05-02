@@ -1,0 +1,16 @@
+# Настройки редактора и IDE
+.editorconfig
+.vscode/
+
+# Зависимости
+node_modules/
+
+# Сборка и артефакты
+node_modules/
+dist/
+public/bundle.js
+public/bundle.js.map
+
+# Файлы, созданные операционной системой
+.DS_Store
+Thumbs.db
