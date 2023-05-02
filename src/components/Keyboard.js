@@ -1,12 +1,18 @@
 import Key from './Key';
 import keysLayout from '../utils/keysLayout';
+import fnKeys from '../utils/fnKeys';
 
 class Keyboard {
   constructor() {
     this.element = document.createElement('div');
     this.element.classList.add('keyboard');
     this.keys = [];
+    this.isCapsLockPressed = false;
     this.initKeys();
+  }
+
+  static isFunctionalKey(keyText) {
+    return fnKeys.includes(keyText);
   }
 
   initKeys() {
@@ -15,34 +21,23 @@ class Keyboard {
       rowElement.classList.add('keyboard__row');
       row.forEach((key) => {
         const keyElement = document.createElement('div');
-        keyElement.classList.add('keyboard__key');
-        const keyObject = new Key(key);
-        this.keys.push(keyObject);
+        const keyObject = new Key(key, keyElement);
 
-        keyElement.addEventListener('mousedown', () => {
-          keyElement.classList.add('keyboard__key--pressed');
-          this.updateInputCallback(keyObject.element.textContent);
+        keyElement.addEventListener('click', () => {
+          const keyTextContent = keyObject.element.textContent;
+          if (keyTextContent === 'Backspace') {
+            this.updateInputCallback(null, true, false);
+          } else if (keyTextContent === 'Del') {
+            this.updateInputCallback(null, false, true);
+          } else if (!Keyboard.isFunctionalKey(keyTextContent)) {
+            this.updateInputCallback(keyTextContent, false, false);
+          }
         });
-        keyElement.addEventListener('mouseup', () => {
-          keyElement.classList.remove('keyboard__key--pressed');
-        });
+
+        this.keys.push(keyObject);
 
         keyElement.appendChild(keyObject.element);
         rowElement.appendChild(keyElement);
-
-        if (key === 'Space') {
-          keyElement.classList.add('keyboard__key--space');
-          keyElement.textContent = '';
-        }
-        if (['CapsLock', 'Backspace', 'Shift'].includes(key)) {
-          keyElement.classList.add('keyboard__key--backspace');
-        }
-        if (['Tab'].includes(key)) {
-          keyElement.classList.add('keyboard__key--tab');
-        }
-        if (['Enter', 'ShiftRight'].includes(key)) {
-          keyElement.classList.add('keyboard__key--enter');
-        }
       });
       this.element.appendChild(rowElement);
     });
